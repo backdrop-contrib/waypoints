@@ -31,3 +31,19 @@ function waypoints_menu() {
 
   return $items;
 }
+
+/**
+ * Implement of hook_permission().
+ *
+ * @return array
+ *   An array of valid permissions for the browserclass module
+ */
+function waypoints_permission() {
+  return array(
+    'configure waypoints module' => array(
+      'title' => 'Configure jQuery Waypoints module',
+      'description' => 'Configure jQuery Waypoints module, set JavaScript operation.',
+      'restrict access' => TRUE,
+    ),
+  );
+}
