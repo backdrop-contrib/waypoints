@@ -56,3 +56,24 @@ function waypoints_init() {
     drupal_add_library('waypoints', 'waypoints');
   }
 }
+
+/**
+ * Implement hook_library().
+ *
+ * @return array
+ *   An array defining libraries associated with a module.
+ */
+function waypoints_library() {
+  $libraries = array();
+
+  $libraries['waypoints'] = array(
+    'title' => 'jQuery Waypoints',
+    'website' => 'http://imakewebthings.github.com/jquery-waypoints/',
+    'version' => '1.0.2',
+    'js' => array(
+      drupal_get_path('module', 'waypoints') . '/waypoints.min.js' => array(),
+    ),
+  );
+
+  return $libraries;
+}
