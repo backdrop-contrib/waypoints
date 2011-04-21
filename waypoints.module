@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ *
+ *
+ *
+ * @author Kálmán Hosszu - hosszu.kalman@gmail.com - http://www.kalman-hosszu.com
+ */
+
+/* ====================== */
+/* ==== DRUPAL HOOKS ==== */
+/* ====================== */
+
+/**
+ * Implement of hook_menu().
+ *
+ * @return
+ *   An array of menu items.
+ */
+function waypoints_menu() {
+  $items = array();
+
+  $items['admin/config/user-interface/waypoints'] = array(
+    'title' => 'jQuery Waypoints',
+    'description' => 'Configure Waypoints module.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('waypoints_settings_form'),
+    'access arguments' => array('configure waypoints module'),
+    'file' => 'includes/waypoints.admin.inc',
+  );
+
+  return $items;
+}
