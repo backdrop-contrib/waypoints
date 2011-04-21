@@ -47,3 +47,12 @@ function waypoints_permission() {
     ),
   );
 }
+
+/**
+ * Implement of hook_init().
+ */
+function waypoints_init() {
+  if (variable_get('waypoints_always_add_js')) {
+    drupal_add_library('waypoints', 'waypoints');
+  }
+}
