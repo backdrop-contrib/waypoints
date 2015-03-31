@@ -1,7 +1,6 @@
-name = jQuery waypoints
+name = jQuery Waypoints
 description = Add jQuery Waypoints plugin to the site
-core = 7.x
-files[] = waypoints.module
+backdrop = 1.x
 package = User interface
 
-configure = admin/config/user-interface/waypoints
+configure = admin/config/development/waypoints
