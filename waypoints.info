@@ -3,4 +3,5 @@ description = Add jQuery Waypoints plugin to the site
 backdrop = 1.x
 package = User interface
 type = module
+version = 1.x-1.0.1
 configure = admin/config/development/waypoints
