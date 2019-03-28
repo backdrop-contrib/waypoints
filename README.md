@@ -42,8 +42,11 @@ module supports the use of this module.
 
 - Ported to Backdrop by [Jerome Danthinne](https://github.com/jdanthinne/)
 - Originally written for Drupal by [kalman.hosszu](https://www.drupal.org/u/kalman.hosszu)
+- The Waypoints library is from [Caleb Troughton](https://github.com/imakewebthings)
 
 ## License
 
 This project is GPL v2 software. See the LICENSE.txt file in this directory for
 complete text.
+
+The Waypoints library is released under the MIT license.
