@@ -34,16 +34,16 @@ For the full documentation,
 [Views Load More](https://github.com/backdrop-contrib/views_load_more)
 module supports the use of this module.
 
+## Current Maintainers
+
+- [Laryn Kragt Bakker](https://github.com/laryn/) - [CEDC.org](https://CEDC.org) 
+
+## Credits
+
+- Ported to Backdrop by [Jerome Danthinne](https://github.com/jdanthinne/)
+- Originally written for Drupal by [kalman.hosszu](https://www.drupal.org/u/kalman.hosszu)
+
 ## License
 
 This project is GPL v2 software. See the LICENSE.txt file in this directory for
 complete text.
-
-## Current Maintainers
-
--   [Jerome Danthinne](https://github.com/jdanthinne/)
-
-## Credits
-
-This module was originally written for Drupal by
-[kalman.hosszu](https://www.drupal.org/u/kalman.hosszu).
