@@ -2,24 +2,14 @@
 /**
  * @file
  *
- *
- *
- * @author Kálmán Hosszu - hosszu.kalman@gmail.com - http://www.kalman-hosszu.com
  */
 
-/**
-* Implements hook_config_info().
-*/
-function waypoints_config_info() {
-  $prefixes['waypoints.settings'] = array(
-    'label' => t('Main settings'),
-    'group' => t('Waypoints'),
-  );
-  return $prefixes;
-}
+/* ====================== */
+/* ==== BACKDROP HOOKS ==== */
+/* ====================== */
 
 /**
- * Implement of hook_menu().
+ * Implements hook_menu().
  *
  * @return
  *   An array of menu items.
@@ -27,7 +17,7 @@ function waypoints_config_info() {
 function waypoints_menu() {
   $items = array();
 
-  $items['admin/config/development/waypoints'] = array(
+  $items['admin/config/user-interface/waypoints'] = array(
     'title' => 'jQuery Waypoints',
     'description' => 'Configure Waypoints module.',
     'page callback' => 'backdrop_get_form',
@@ -40,7 +30,7 @@ function waypoints_menu() {
 }
 
 /**
- * Implement of hook_permission().
+ * Implements hook_permission().
  *
  * @return array
  *   An array of valid permissions for the browserclass module
@@ -56,10 +46,41 @@ function waypoints_permission() {
 }
 
 /**
- * Implement of hook_init().
+ * Implements hook_config_info().
+ */
+function waypoints_config_info() {
+  $prefixes['waypoints.settings'] = array(
+    'label' => t('Module name settings'),
+    'group' => t('Configuration'),
+  );
+}
+
+/**
+ * Implements hook_init().
  */
 function waypoints_init() {
-  if (config_get('waypoints.settings', 'always_add_js')) {
-    backdrop_add_js(backdrop_get_path('module', 'waypoints') . '/js/waypoints.min.js');
-  }
+  if (config_get('waypoints.settings', 'waypoints_always_add_js')) {
+    backdrop_add_library('waypoints', 'waypoints', TRUE);
+  } 
+}
+
+/**
+ * Implements hook_library_info().
+ *
+ * @return array
+ *   An array defining libraries associated with a module.
+ */
+function waypoints_library_info() {
+  $libraries = array();
+
+  $libraries['waypoints'] = array(
+    'title' => 'jQuery Waypoints',
+    'website' => 'http://imakewebthings.github.com/jquery-waypoints/',
+    'version' => '4.0.1',
+    'js' => array(
+      backdrop_get_path('module', 'waypoints') . '/library/jquery.waypoints.min.js' => array(),
+    ),
+  );
+
+  return $libraries;
 }

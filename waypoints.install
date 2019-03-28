@@ -1,14 +1,30 @@
 <?php
-
 /**
  * @file
- * Install, update, and uninstall functions.
+ * Install, update and uninstall functions for the waypoints module.
+ *
  */
 
+
 /**
- * Migrate variables to config.
+ * Implements hook_update_last_removed().
+ */
+function waypoints_update_last_removed() {
+  return;
+}
+
+/**
+ * Implements hook_update_N().
  */
 function waypoints_update_1000() {
-  config_set('waypoints.settings', 'always_add_js', update_variable_get('waypoints_always_add_js', FALSE));
+  $config = config('waypoints.settings');
+  $config->set('waypoints_always_add_js', update_variable_get('waypoints_always_add_js', 'novalue'));
   update_variable_del('waypoints_always_add_js');
+}
+
+/**
+ * Implements hook_install().
+ */
+function waypoints_install() {
+  // Dynamically generated variable data was detected.
 }
