@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions.
+ */
+
+/**
+ * Migrate variables to config.
+ */
+function waypoints_update_1000() {
+  config_set('waypoints.settings', 'always_add_js', update_variable_get('waypoints_always_add_js', FALSE));
+  update_variable_del('waypoints_always_add_js');
+}

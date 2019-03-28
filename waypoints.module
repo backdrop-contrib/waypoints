@@ -7,9 +7,16 @@
  * @author Kálmán Hosszu - hosszu.kalman@gmail.com - http://www.kalman-hosszu.com
  */
 
-/* ====================== */
-/* ==== DRUPAL HOOKS ==== */
-/* ====================== */
+/**
+* Implements hook_config_info().
+*/
+function waypoints_config_info() {
+  $prefixes['waypoints.settings'] = array(
+    'label' => t('Main settings'),
+    'group' => t('Waypoints'),
+  );
+  return $prefixes;
+}
 
 /**
  * Implement of hook_menu().
@@ -20,10 +27,10 @@
 function waypoints_menu() {
   $items = array();
 
-  $items['admin/config/user-interface/waypoints'] = array(
+  $items['admin/config/development/waypoints'] = array(
     'title' => 'jQuery Waypoints',
     'description' => 'Configure Waypoints module.',
-    'page callback' => 'drupal_get_form',
+    'page callback' => 'backdrop_get_form',
     'page arguments' => array('waypoints_settings_form'),
     'access arguments' => array('configure waypoints module'),
     'file' => 'includes/waypoints.admin.inc',
@@ -52,28 +59,7 @@ function waypoints_permission() {
  * Implement of hook_init().
  */
 function waypoints_init() {
-  if (variable_get('waypoints_always_add_js')) {
-    drupal_add_library('waypoints', 'waypoints');
+  if (config_get('waypoints.settings', 'always_add_js')) {
+    backdrop_add_js(backdrop_get_path('module', 'waypoints') . '/js/waypoints.min.js');
   }
-}
-
-/**
- * Implement hook_library().
- *
- * @return array
- *   An array defining libraries associated with a module.
- */
-function waypoints_library() {
-  $libraries = array();
-
-  $libraries['waypoints'] = array(
-    'title' => 'jQuery Waypoints',
-    'website' => 'http://imakewebthings.github.com/jquery-waypoints/',
-    'version' => '1.0.2',
-    'js' => array(
-      drupal_get_path('module', 'waypoints') . '/waypoints.min.js' => array(),
-    ),
-  );
-
-  return $libraries;
 }
