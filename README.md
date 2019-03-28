@@ -15,7 +15,7 @@ include the JavaScript file to the site.
 Otherwise you can include it manually via a simple function callback:
 
 ```php
-drupal_add_library('waypoints', 'waypoints');
+backdrop_add_library('waypoints', 'waypoints');
 ```
 
 ## Usage
